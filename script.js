@@ -5,7 +5,7 @@ fileInput.addEventListener("change",(e)=>{
     function readFile(file) {
         reader.onload=(e)=>{
             const box1=document.getElementById("box1")
-            if (file.name.endsWith(".img")) {
+            if (file.type.match("image.*")) {
                 const img=new Image()
                 img.src=e.target.result
                 box1.innerHTML=""
@@ -20,7 +20,7 @@ fileInput.addEventListener("change",(e)=>{
                 alert("img uzantili fayl daxil edin!")
             }
         }
-        if(file.name.endsWith(".img")){
+        if(file.type.match("image.*")){
             reader.readAsDataURL(file)
         }
     }
